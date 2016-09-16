@@ -1,14 +1,16 @@
-﻿<html>
-<head>
-<meta charset="utf-8">
-<title>email</title>
-</head>
-<body>
-<?php
+﻿<?php
+	
+	
+	/** 分别封装了利用QQ和Gmai来发送邮件的方法
+	 * 
+	 * 		  
+	 * 	时间：2016/9/16														
+	 *  作者：anspray
+	 */
+	
 
-	set_time_limit(0); 				
-
-	ignore_user_abort();
+	set_time_limit(0); 									//无时间限制，实际测试在apache上运行到后面会断					
+	ignore_user_abort();								//关闭浏览器后程序依然运行
 
 	
 	require_once './libs/class.phpmailer.php';
@@ -25,19 +27,15 @@
 		sendGmail($address,$toname,$new);
 	}
 
-
 	function sendMail(){
-		$new = "hello world......";
-		QQmail('14287*****@qq.com', 'user', $new);																		//发送邮件
+		$new = "hello world......";						//邮件信息
+		QQmail('14*******@qq.com', 'user', $new);		//发送人邮箱和信息																//发送邮件
 	}
 
 	
 	for($i = 0;$i<=500;$i++){
-		/*循环发送数据*/
 		sendMail();
-
-		echo "hello";
-
+		//sendGmail();
 	}
 
 
